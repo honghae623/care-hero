@@ -215,7 +215,7 @@ footer{padding-block:48px;color:var(--muted);font-size:.85rem;display:grid;gap:6
       <h1>아이 키우고 <span class="nowrap">부모님 모신 그 시간,</span><br><span class="nowrap"><em>이제 경력</em>이 됩니다</span></h1>
       <p class="lead">쉬는 동안 손이 녹슬었을까 걱정하지 마세요. 살림하고, 아이 키우고, 가족을 돌본 세월이 우리 동네 이웃에게는 가장 믿음직한 경력입니다. 집 가까운 곳에서, 주 2~3일 원하는 시간만큼 일하세요.</p>
       <div class="ctas">
-        <a class="btn btn-main" href="#apply">돌봄 히어로 신청하기</a>
+        <a class="btn btn-main" href="#apply" id="heroApplyBtn">돌봄 히어로 신청하기</a>
         <div class="call">
           <small>전화 상담 (평일 9시~18시)</small>
           <strong>1600-0000</strong>
@@ -472,6 +472,10 @@ footer{padding-block:48px;color:var(--muted);font-size:.85rem;display:grid;gap:6
     var on = !root.classList.contains('big');
     setBig(on);
     try { localStorage.setItem('hero-big', on ? '1' : '0'); } catch(e) {}
+  });
+
+  document.getElementById('heroApplyBtn').addEventListener('click', function(){
+    window.amplitude.track('Hero Apply Button Clicked');
   });
 
   var form = document.getElementById('applyForm');
